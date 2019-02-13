@@ -1,3 +1,5 @@
+require 'pry'
+
 def begins_with_r(array)
   array.each do |rrr|
     if rrr[0] !="r"
@@ -40,9 +42,23 @@ def remove_non_strings (array)
 end
       
 def count_elements (array)
-  array_2 = [{:name => "blake", :count => 2}, {:name => "ashley", :count => 1}]
-  array_2
-  # You haven't taught me how to use hashes yet so I'm cheating! I'll come back and fix it as soon as I read the next section, "Intro_to_Hashes"!!!
+  name_hash = {}
+  array.each do |i|
+    if name_hash[i[:name]] == NIL
+      name_hash[i] = 0
+    end
+  end
+  array.each do |i|
+    name_hash.each do |name, number|
+      binding.pry
+      if name == i[:name]
+        binding.pry
+        number += 1
+        name_hash[i] = number
+      end
+    end
+  end
+  #binding.pry
 end
       
 def merge_data (array_1, array_2)
